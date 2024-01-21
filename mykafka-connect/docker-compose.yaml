@@ -6,6 +6,7 @@ services:
     volumes:
       - kafka-connect-data:/bitnami/kafka
       - ./config/connect-distributed.properties:/opt/bitnami/kafka/config/connect-distributed.properties
+      - ./connectors:/opt/connectors
     ports:
       - 8083:8083
     networks:
