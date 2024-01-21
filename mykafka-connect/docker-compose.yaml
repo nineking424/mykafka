@@ -1,0 +1,22 @@
+version: "3"
+services:
+  kafka-connect:
+    container_name: kafka-connect
+    image: 'bitnami/kafka:latest'
+    volumes:
+      - kafka-connect-data:/bitnami/kafka
+      - $HOME/data/kafka-connect-config/connect-distributed.properties:/opt/bitnami/kafka/config/connect-distributed.properties
+    ports:
+      - 8083:8083
+    networks:
+      - mykafka-net
+    command: ['/opt/bitnami/kafka/bin/connect-distributed.sh', '/opt/bitnami/kafka/config/connect-distributed.properties']
+volumes:
+  kafka-connect-data:
+    driver: local
+  kafka-connect-config:
+    driver: local
+networks:
+  # docker network create mykafka-net
+  mykafka-net:
+    external: true
