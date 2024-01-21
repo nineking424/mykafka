@@ -17,7 +17,7 @@ services:
     container_name: kafka-connect-ui
     image: landoop/kafka-connect-ui
     ports:
-      - 8000:8000
+      - 8888:8000
     environment:
       CONNECT_URL: http://kafka-connect:8083
     networks:
