@@ -14,8 +14,6 @@ services:
 volumes:
   kafka-connect-data:
     driver: local
-  kafka-connect-config:
-    driver: local
 networks:
   # docker network create mykafka-net
   mykafka-net:
