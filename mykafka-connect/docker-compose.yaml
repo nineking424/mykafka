@@ -5,7 +5,7 @@ services:
     image: 'bitnami/kafka:latest'
     volumes:
       - kafka-connect-data:/bitnami/kafka
-      - $HOME/data/kafka-connect-config/connect-distributed.properties:/opt/bitnami/kafka/config/connect-distributed.properties
+      - ./config/connect-distributed.properties:/opt/bitnami/kafka/config/connect-distributed.properties
     ports:
       - 8083:8083
     networks:
