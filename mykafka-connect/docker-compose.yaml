@@ -13,6 +13,15 @@ services:
     networks:
       - mykafka-net
     command: ['/opt/bitnami/kafka/bin/connect-distributed.sh', '/opt/bitnami/kafka/config/connect-distributed.properties']
+  kafka-connect-ui:
+    container_name: kafka-connect-ui
+    image: landoop/kafka-connect-ui
+    ports:
+      - 8000:8000
+    environment:
+      CONNECT_URL: http://kafka-connect:8083
+    networks:
+      - mykafka-net
 volumes:
   kafka-connect-data:
     driver: local
